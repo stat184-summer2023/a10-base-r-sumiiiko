@@ -97,10 +97,11 @@ Counting
 ```{r}
 set.seed(184)
 plotNormal <- function(repitions, mean, sd){
-  
+  rnorm(repitions, mean, sd) 
 }
 
-
+plotNormal(1000, 0 , 1)
+hist(plotNormal(1000, 0 , 1))
 ```
 
 ##### Extra Credit: 
