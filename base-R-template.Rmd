@@ -96,12 +96,12 @@ Counting
 
 ```{r}
 set.seed(184)
-plotNormal <- function(repitions, mean, sd){
-  rnorm(repitions, mean, sd) 
+plotNormal <- function(n, mean, sd){
+  random <- rnorm(n, mean, sd)
+  hist(random)
 }
-
-plotNormal(1000, 0 , 1)
-hist(plotNormal(1000, 0 , 1))
+partA <- plotNormal(100, 50, 1)
+partB <- plotNormal(1000, 0 , 1)
 ```
 
 ##### Extra Credit: 
@@ -114,7 +114,12 @@ Repeat parts 5A and 5B, and add
 Call the function to generate 1000 random normal numbers with mean 0 and standard deviation 1 and plot a histogram. Make the bins blue.
 
 ```{r}
-
-
+set.seed(184)
+plotNormal <- function(n, mean, sd){
+  random <- rnorm(n, mean, sd)
+  hist(random, main = paste("Histogram from a Normal(", mean, ",", sd, ") Distribution"), col = "blue")
+}
+partA <- plotNormal(100, 50, 1)
+partB <- plotNormal(1000, 0 , 1)
 
 ```
