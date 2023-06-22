@@ -77,7 +77,15 @@ Hint: First identify the pattern(s) in the table before you create the for loop.
 | 3 | 4 | 5 | 6 |  
 
 ```{r}
-
+Counting <- data.frame(NULL)
+row <- 0:2
+col <- 1:4
+for (i in 1:length(col)) {
+   for (j in 1:length(row) ) {
+       Counting[j,i] <- ( j + i - 1)
+   }
+}
+Counting
 ```
 
 ### Question 5: user defined functions
