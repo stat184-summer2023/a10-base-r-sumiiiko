@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Your Name Here" />
+<meta name="author" content="Daniel Gao" />
 
 
 <title>Fix the title</title>
@@ -1683,23 +1683,17 @@ overflow-y: auto;
 border: 1px solid #ddd;
 border-radius: 4px;
 }
-.tabset-dropdown > .nav-tabs > li.active:before {
-content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+content: "\e259";
 font-family: 'Glyphicons Halflings';
 display: inline-block;
 padding: 10px;
 border-right: 1px solid #ddd;
 }
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-content: "";
-border: none;
-}
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-content: "";
+content: "\e258";
 font-family: 'Glyphicons Halflings';
-display: inline-block;
-padding: 10px;
-border-right: 1px solid #ddd;
+border: none;
 }
 .tabset-dropdown > .nav-tabs > li.active {
 display: block;
@@ -1754,8 +1748,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Fix the title</h1>
-<h4 class="author">Your Name Here</h4>
-<h4 class="date">Add the date</h4>
+<h4 class="author">Daniel Gao</h4>
 
 </div>
 
@@ -1768,6 +1761,14 @@ display: none;
 dataset</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YShpcmlzKVxuaXJpc1sxMCw1XVxuYGBgIn0= -->
+<pre class="r"><code>data(iris)
+iris[10,5]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIHNldG9zYVxuTGV2ZWxzOiBzZXRvc2EgdmVyc2ljb2xvciB2aXJnaW5pY2FcbiJ9 -->
+<pre><code>[1] setosa
+Levels: setosa versicolor virginica</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1776,6 +1777,14 @@ dataset</h4>
 last 5 rows of that column</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFpbChpcmlzJFNwZWNpZXMsIDUpXG5cbmBgYCJ9 -->
+<pre class="r"><code>tail(iris$Species, 5)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIHZpcmdpbmljYSB2aXJnaW5pY2EgdmlyZ2luaWNhIHZpcmdpbmljYSB2aXJnaW5pY2FcbkxldmVsczogc2V0b3NhIHZlcnNpY29sb3IgdmlyZ2luaWNhXG4ifQ== -->
+<pre><code>[1] virginica virginica virginica virginica virginica
+Levels: setosa versicolor virginica</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1784,6 +1793,13 @@ last 5 rows of that column</h4>
 greater than 1?</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbihpcmlzJFNlcGFsLkxlbmd0aFtpcmlzJFBldGFsLldpZHRoID4gMV0pXG5cbmBgYCJ9 -->
+<pre class="r"><code>mean(iris$Sepal.Length[iris$Petal.Width &gt; 1])
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDYuMzI1ODA2XG4ifQ== -->
+<pre><code>[1] 6.325806</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1797,6 +1813,33 @@ number by 3), and if the number is greater than or equal to 5 print the
 multiple of 2 (multiply the number by 2).</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubnVtYmVyIDwtIHNlcSgxLCAxMCwgYnkgPSAxKVxuaiA8LSAwXG5mb3IoaSBpbiAxOjEwKSB7XG4gICAgaiA8LSBqICsgMVxuICAgIGlmIChqIDwgNSkge1xuICAgICAgayA8LSBqICogM1xuICAgICAgcHJpbnQoaylcbiAgICB9XG4gICAgZWxzZSB7XG4gICAgICBrIDwtIGogKiAyXG4gICAgICBwcmludChrKVxuICAgIH1cbn1cbmBgYCJ9 -->
+<pre class="r"><code>number &lt;- seq(1, 10, by = 1)
+j &lt;- 0
+for(i in 1:10) {
+    j &lt;- j + 1
+    if (j &lt; 5) {
+      k &lt;- j * 3
+      print(k)
+    }
+    else {
+      k &lt;- j * 2
+      print(k)
+    }
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDNcblsxXSA2XG5bMV0gOVxuWzFdIDEyXG5bMV0gMTBcblsxXSAxMlxuWzFdIDE0XG5bMV0gMTZcblsxXSAxOFxuWzFdIDIwXG4ifQ== -->
+<pre><code>[1] 3
+[1] 6
+[1] 9
+[1] 12
+[1] 10
+[1] 12
+[1] 14
+[1] 16
+[1] 18
+[1] 20</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1810,81 +1853,71 @@ stops (breaks) if you get a number bigger than 3. Do not change the
 value inside set.seeed.</h4>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTg0KVxuXG5gYGAifQ== -->
-<pre class="r"><code>set.seed(184)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2V0LnNlZWQoMTg0KVxuXG5gYGBcbmBgYCJ9 -->
+<pre class="r"><code>```r
+set.seed(184)
 </code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="question-4-for-loops-in-data-tables" class="section level3">
-<h3>Question 4: for loops in data tables</h3>
-<div id="use-a-nested-for-loop-that-produces-the-following-data-frame.-name-the-dataframe-counting-and-the-variables-columns-v1-v2-v3-and-v4.-there-are-3-loops." class="section level4">
-<h4>Use a nested for loop that produces the following data frame. Name
-the dataframe <code>Counting</code> and the variables (columns) V1, V2,
-V3, and V4. (There are 3 loops).</h4>
-<p>Hint: First identify the pattern(s) in the table before you create
-the for loop.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">V1</th>
-<th align="left">V2</th>
-<th align="left">V3</th>
-<th align="left">V4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">4</td>
-</tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">4</td>
-<td align="left">5</td>
-</tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="left">4</td>
-<td align="left">5</td>
-<td align="left">6</td>
-</tr>
-</tbody>
-</table>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-</div>
-<div id="question-5-user-defined-functions" class="section level3">
-<h3>Question 5: user defined functions</h3>
-<div id="a-complete-the-following-user-define-function-to-generate-n-random-normal-numbers-with-a-given-mean-and-standard-deviation-and-plot-a-histogram-of-it.-do-not-change-the-seed-number-in-set.seed.-you-can-use-the-function-hist-to-plot-the-histogram." class="section level4">
-<h4>5A) Complete the following user define function to generate
-<code>n</code> random normal numbers with a given mean and standard
-deviation and plot a histogram of it. Do not change the seed number in
-set.seed. You can use the function <code>hist</code> to plot the
-histogram.</h4>
-<div id="b-then-call-the-function-to-generate-1000-random-normal-numbers-with-mean-0-and-standard-deviation-1-and-plot-a-histogram-of-it." class="section level5">
-<h5>5B) Then call the function to generate 1000 random normal numbers
-with mean 0 and standard deviation 1 and plot a histogram of it.</h5>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0LnNlZWQoMTg0KVxucGxvdE5vcm1hbCA8LSBmdW5jdGlvbihyZXBpdGlvbnMsIG1lYW4sIHNkKXtcbiAgXG59XG5cblxuYGBgIn0= -->
-<pre class="r"><code>set.seed(184)
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+### Question 4: for loops in data tables
+
+#### Use a nested for loop that produces the following data frame. Name the dataframe  `Counting` and the variables (columns)  V1, V2, V3, and V4.  (There are 3 loops). 
+
+Hint: First identify the pattern(s) in the table before you create the for loop.
+
+| V1 | V2 | V3 | V4 |  
+|:-- |:-- |:-- |:-- |
+| 1 | 2 | 3 | 4 |  
+| 2 | 3 | 4 | 5 |  
+| 3 | 4 | 5 | 6 |  
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+### Question 5: user defined functions
+
+#### 5A) Complete the following user define function to generate `n` random normal numbers with a given mean and standard deviation and plot a histogram of it. Do not change  the seed number in set.seed. You can use the function `hist` to plot the histogram.  
+
+##### 5B) Then call the function to generate 1000 random normal numbers with mean 0 and standard deviation 1 and plot a histogram of it.
+
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2V0LnNlZWQoMTg0KVxucGxvdE5vcm1hbCA8LSBmdW5jdGlvbihyZXBpdGlvbnMsIG1lYW4sIHNkKXtcbiAgXG59XG5cblxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+set.seed(184)
 plotNormal &lt;- function(repitions, mean, sd){
   
 }
 </code></pre>
+<p>```</p>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</div>
 <div id="extra-credit" class="section level5">
 <h5>Extra Credit:</h5>
 <p>Repeat parts 5A and 5B, and add</p>
@@ -1903,7 +1936,7 @@ and standard deviation 1 and plot a histogram. Make the bins blue.</p>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiRml4IHRoZSB0aXRsZSIKYXV0aG9yOiAiWW91ciBOYW1lIEhlcmUiCmRhdGU6ICJBZGQgdGhlIGRhdGUiCm91dHB1dDogCiAgICBodG1sX25vdGVib29rCi0tLQoKIyMjIFF1ZXN0aW9uIDE6IFN1YnNldHRpbmcKCiMjIyMgU2VsZWN0IHRoZSBlbGVtZW50IGluIDEwdGggcm93IGFuZCA1dGggY29sdW1uIGluIGBpcmlzYCBkYXRhc2V0CgpgYGB7cn0KZGF0YShpcmlzKQoKYGBgCgoKIyMjIyBTZWxlY3QgdGhlIFNwZWNpZXMgY29sdW1uIGluIGBpcmlzYCBkYXRhc2V0IGFuZCBwcmludCB0aGUgbGFzdCA1IHJvd3Mgb2YgdGhhdCBjb2x1bW4KYGBge3J9CgpgYGAKCgojIyMjIFdoYXQgaXMgdGhlIGF2ZXJhZ2UgU2VwYWwgTGVuZ3RoIG9mIGZsb3dlcnMgd2l0aCBQZXRhbCB3aWR0aHMgZ3JlYXRlciB0aGFuIDE/IAoKYGBge3J9CgoKYGBgCgojIyMgUXVlc3Rpb24gMjogRm9yIExvb3BzCgojIyMjIFdyaXRlIGEgYGZvcmAgbG9vcCB0aGF0IGl0ZXJhdGVzIG92ZXIgdGhlIG51bWJlcnMgMSB0byAxMC4gSWYgdGhlIG51bWJlciBsZXNzIHRoYW4gNSBwcmludCB0aGUgbXVsdGlwbGUgb2YgMyAobXVsdGlwbHkgdGhlIG51bWJlciBieSAzKSwgYW5kIGlmIHRoZSBudW1iZXIgaXMgZ3JlYXRlciB0aGFuIG9yIGVxdWFsIHRvIDUgcHJpbnQgdGhlIG11bHRpcGxlIG9mIDIgKG11bHRpcGx5IHRoZSBudW1iZXIgYnkgMikuIAoKYGBge3J9CgpgYGAKCiMjIyBRdWVzdGlvbiAzOiBXaGlsZSBsb29wcwoKIyMjIyBXcml0ZSBhIGB3aGlsZWAgbG9vcCB0aGF0IHByaW50cyBvdXQgcmFuZG9tIG5vcm1hbCBudW1iZXJzIHdpdGggbWVhbiBlcXVhbCAxIGFuZCBzdGFuZGFyZCBkZXZpYXRpb24gMiAodXNlIHJub3JtKCkpIGJ1dCBzdG9wcyAoYnJlYWtzKSBpZiB5b3UgZ2V0IGEgbnVtYmVyIGJpZ2dlciB0aGFuIDMuIERvIG5vdCBjaGFuZ2UgdGhlIHZhbHVlIGluc2lkZSBzZXQuc2VlZWQuCmBgYHtyfQpzZXQuc2VlZCgxODQpCgpgYGAKCiMjIyBRdWVzdGlvbiA0OiBmb3IgbG9vcHMgaW4gZGF0YSB0YWJsZXMKCiMjIyMgVXNlIGEgbmVzdGVkIGZvciBsb29wIHRoYXQgcHJvZHVjZXMgdGhlIGZvbGxvd2luZyBkYXRhIGZyYW1lLiBOYW1lIHRoZSBkYXRhZnJhbWUgIGBDb3VudGluZ2AgYW5kIHRoZSB2YXJpYWJsZXMgKGNvbHVtbnMpICBWMSwgVjIsIFYzLCBhbmQgVjQuICAoVGhlcmUgYXJlIDMgbG9vcHMpLiAKCkhpbnQ6IEZpcnN0IGlkZW50aWZ5IHRoZSBwYXR0ZXJuKHMpIGluIHRoZSB0YWJsZSBiZWZvcmUgeW91IGNyZWF0ZSB0aGUgZm9yIGxvb3AuCgp8IFYxIHwgVjIgfCBWMyB8IFY0IHwgIAp8Oi0tIHw6LS0gfDotLSB8Oi0tIHwKfCAxIHwgMiB8IDMgfCA0IHwgIAp8IDIgfCAzIHwgNCB8IDUgfCAgCnwgMyB8IDQgfCA1IHwgNiB8ICAKCmBgYHtyfQoKYGBgCgojIyMgUXVlc3Rpb24gNTogdXNlciBkZWZpbmVkIGZ1bmN0aW9ucwoKIyMjIyA1QSkgQ29tcGxldGUgdGhlIGZvbGxvd2luZyB1c2VyIGRlZmluZSBmdW5jdGlvbiB0byBnZW5lcmF0ZSBgbmAgcmFuZG9tIG5vcm1hbCBudW1iZXJzIHdpdGggYSBnaXZlbiBtZWFuIGFuZCBzdGFuZGFyZCBkZXZpYXRpb24gYW5kIHBsb3QgYSBoaXN0b2dyYW0gb2YgaXQuIERvIG5vdCBjaGFuZ2UgIHRoZSBzZWVkIG51bWJlciBpbiBzZXQuc2VlZC4gWW91IGNhbiB1c2UgdGhlIGZ1bmN0aW9uIGBoaXN0YCB0byBwbG90IHRoZSBoaXN0b2dyYW0uICAKCiMjIyMjIDVCKSBUaGVuIGNhbGwgdGhlIGZ1bmN0aW9uIHRvIGdlbmVyYXRlIDEwMDAgcmFuZG9tIG5vcm1hbCBudW1iZXJzIHdpdGggbWVhbiAwIGFuZCBzdGFuZGFyZCBkZXZpYXRpb24gMSBhbmQgcGxvdCBhIGhpc3RvZ3JhbSBvZiBpdC4KCmBgYHtyfQpzZXQuc2VlZCgxODQpCnBsb3ROb3JtYWwgPC0gZnVuY3Rpb24ocmVwaXRpb25zLCBtZWFuLCBzZCl7CiAgCn0KCgpgYGAKCiMjIyMjIEV4dHJhIENyZWRpdDogCgpSZXBlYXQgcGFydHMgNUEgYW5kIDVCLCBhbmQgYWRkIAoKMS4gQSB0aXRsZSB0aGF0IHNheSAiSGlzdG9ncmFtIGZyb20gYSBOb3JtYWwoYG1lYW5gLCBgc2RgKSBEaXN0cmlidXRpb24iLCBidXQgdGhlIHVzZXIgZ2l2ZW4gdmFsdWVzIG9mIGBtZWFuYCBhbmQgYHNkYC4KMi4gYW4gYXJndW1lbnQgdG8gY2hhbmdlIHRoZSBjb2xvciBvZiB0aGUgaGlzdG9ncmFtLiAgCgpDYWxsIHRoZSBmdW5jdGlvbiB0byBnZW5lcmF0ZSAxMDAwIHJhbmRvbSBub3JtYWwgbnVtYmVycyB3aXRoIG1lYW4gMCBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIDEgYW5kIHBsb3QgYSBoaXN0b2dyYW0uIE1ha2UgdGhlIGJpbnMgYmx1ZS4KCmBgYHtyfQoKCgpgYGAK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiRml4IHRoZSB0aXRsZSIKYXV0aG9yOiAiRGFuaWVsIEdhbyIKZGF0ZTogIiIKb3V0cHV0OiAKICAgIGh0bWxfbm90ZWJvb2sKLS0tCgojIyMgUXVlc3Rpb24gMTogU3Vic2V0dGluZwoKIyMjIyBTZWxlY3QgdGhlIGVsZW1lbnQgaW4gMTB0aCByb3cgYW5kIDV0aCBjb2x1bW4gaW4gYGlyaXNgIGRhdGFzZXQKCmBgYHtyfQpkYXRhKGlyaXMpCmlyaXNbMTAsNV0KYGBgCgoKIyMjIyBTZWxlY3QgdGhlIFNwZWNpZXMgY29sdW1uIGluIGBpcmlzYCBkYXRhc2V0IGFuZCBwcmludCB0aGUgbGFzdCA1IHJvd3Mgb2YgdGhhdCBjb2x1bW4KYGBge3J9CnRhaWwoaXJpcyRTcGVjaWVzLCA1KQpgYGAKCgojIyMjIFdoYXQgaXMgdGhlIGF2ZXJhZ2UgU2VwYWwgTGVuZ3RoIG9mIGZsb3dlcnMgd2l0aCBQZXRhbCB3aWR0aHMgZ3JlYXRlciB0aGFuIDE/IAoKYGBge3J9Cm1lYW4oaXJpcyRTZXBhbC5MZW5ndGhbaXJpcyRQZXRhbC5XaWR0aCA+IDFdKQpgYGAKCiMjIyBRdWVzdGlvbiAyOiBGb3IgTG9vcHMKCiMjIyMgV3JpdGUgYSBgZm9yYCBsb29wIHRoYXQgaXRlcmF0ZXMgb3ZlciB0aGUgbnVtYmVycyAxIHRvIDEwLiBJZiB0aGUgbnVtYmVyIGxlc3MgdGhhbiA1IHByaW50IHRoZSBtdWx0aXBsZSBvZiAzIChtdWx0aXBseSB0aGUgbnVtYmVyIGJ5IDMpLCBhbmQgaWYgdGhlIG51bWJlciBpcyBncmVhdGVyIHRoYW4gb3IgZXF1YWwgdG8gNSBwcmludCB0aGUgbXVsdGlwbGUgb2YgMiAobXVsdGlwbHkgdGhlIG51bWJlciBieSAyKS4gCgpgYGB7cn0KbnVtYmVyIDwtIHNlcSgxLCAxMCwgYnkgPSAxKQpqIDwtIDAKZm9yKGkgaW4gMToxMCkgewogICAgaiA8LSBqICsgMQogICAgaWYgKGogPCA1KSB7CiAgICAgIGsgPC0gaiAqIDMKICAgICAgcHJpbnQoaykKICAgIH0KICAgIGVsc2UgewogICAgICBrIDwtIGogKiAyCiAgICAgIHByaW50KGspCiAgICB9Cn0KYGBgCgojIyMgUXVlc3Rpb24gMzogV2hpbGUgbG9vcHMKCiMjIyMgV3JpdGUgYSBgd2hpbGVgIGxvb3AgdGhhdCBwcmludHMgb3V0IHJhbmRvbSBub3JtYWwgbnVtYmVycyB3aXRoIG1lYW4gZXF1YWwgMSBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIDIgKHVzZSBybm9ybSgpKSBidXQgc3RvcHMgKGJyZWFrcykgaWYgeW91IGdldCBhIG51bWJlciBiaWdnZXIgdGhhbiAzLiBEbyBub3QgY2hhbmdlIHRoZSB2YWx1ZSBpbnNpZGUgc2V0LnNlZWVkLgpgYGB7cn0Kc2V0LnNlZWQoMTg0KQoKYGBgCgojIyMgUXVlc3Rpb24gNDogZm9yIGxvb3BzIGluIGRhdGEgdGFibGVzCgojIyMjIFVzZSBhIG5lc3RlZCBmb3IgbG9vcCB0aGF0IHByb2R1Y2VzIHRoZSBmb2xsb3dpbmcgZGF0YSBmcmFtZS4gTmFtZSB0aGUgZGF0YWZyYW1lICBgQ291bnRpbmdgIGFuZCB0aGUgdmFyaWFibGVzIChjb2x1bW5zKSAgVjEsIFYyLCBWMywgYW5kIFY0LiAgKFRoZXJlIGFyZSAzIGxvb3BzKS4gCgpIaW50OiBGaXJzdCBpZGVudGlmeSB0aGUgcGF0dGVybihzKSBpbiB0aGUgdGFibGUgYmVmb3JlIHlvdSBjcmVhdGUgdGhlIGZvciBsb29wLgoKfCBWMSB8IFYyIHwgVjMgfCBWNCB8ICAKfDotLSB8Oi0tIHw6LS0gfDotLSB8CnwgMSB8IDIgfCAzIHwgNCB8ICAKfCAyIHwgMyB8IDQgfCA1IHwgIAp8IDMgfCA0IHwgNSB8IDYgfCAgCgpgYGB7cn0KCmBgYAoKIyMjIFF1ZXN0aW9uIDU6IHVzZXIgZGVmaW5lZCBmdW5jdGlvbnMKCiMjIyMgNUEpIENvbXBsZXRlIHRoZSBmb2xsb3dpbmcgdXNlciBkZWZpbmUgZnVuY3Rpb24gdG8gZ2VuZXJhdGUgYG5gIHJhbmRvbSBub3JtYWwgbnVtYmVycyB3aXRoIGEgZ2l2ZW4gbWVhbiBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIGFuZCBwbG90IGEgaGlzdG9ncmFtIG9mIGl0LiBEbyBub3QgY2hhbmdlICB0aGUgc2VlZCBudW1iZXIgaW4gc2V0LnNlZWQuIFlvdSBjYW4gdXNlIHRoZSBmdW5jdGlvbiBgaGlzdGAgdG8gcGxvdCB0aGUgaGlzdG9ncmFtLiAgCgojIyMjIyA1QikgVGhlbiBjYWxsIHRoZSBmdW5jdGlvbiB0byBnZW5lcmF0ZSAxMDAwIHJhbmRvbSBub3JtYWwgbnVtYmVycyB3aXRoIG1lYW4gMCBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIDEgYW5kIHBsb3QgYSBoaXN0b2dyYW0gb2YgaXQuCgpgYGB7cn0Kc2V0LnNlZWQoMTg0KQpwbG90Tm9ybWFsIDwtIGZ1bmN0aW9uKHJlcGl0aW9ucywgbWVhbiwgc2QpewogIAp9CgoKYGBgCgojIyMjIyBFeHRyYSBDcmVkaXQ6IAoKUmVwZWF0IHBhcnRzIDVBIGFuZCA1QiwgYW5kIGFkZCAKCjEuIEEgdGl0bGUgdGhhdCBzYXkgIkhpc3RvZ3JhbSBmcm9tIGEgTm9ybWFsKGBtZWFuYCwgYHNkYCkgRGlzdHJpYnV0aW9uIiwgYnV0IHRoZSB1c2VyIGdpdmVuIHZhbHVlcyBvZiBgbWVhbmAgYW5kIGBzZGAuCjIuIGFuIGFyZ3VtZW50IHRvIGNoYW5nZSB0aGUgY29sb3Igb2YgdGhlIGhpc3RvZ3JhbS4gIAoKQ2FsbCB0aGUgZnVuY3Rpb24gdG8gZ2VuZXJhdGUgMTAwMCByYW5kb20gbm9ybWFsIG51bWJlcnMgd2l0aCBtZWFuIDAgYW5kIHN0YW5kYXJkIGRldmlhdGlvbiAxIGFuZCBwbG90IGEgaGlzdG9ncmFtLiBNYWtlIHRoZSBiaW5zIGJsdWUuCgpgYGB7cn0KCgoKYGBgCg==</div>
 
 
 
